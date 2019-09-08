@@ -15,11 +15,11 @@ class MainActivity : AppCompatActivity() {
     * Todo: make computer an opponent
      */
 
-    private val redX = R.drawable.redcross
-    private val blackO = R.drawable.blackcircle
+    private val red_X = R.drawable.redcross
+    private val black_O = R.drawable.blackcircle
     private val background = R.drawable.background
     private val blocks = IntArray(9)
-    private val images: Array<ImageView>
+    private lateinit var images: Array<ImageView>
 
     private var turnNum = 1
 
@@ -29,12 +29,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-    }
-
-    init {
         this.images = arrayOf(
-            findViewById(R.id.img1), findViewById(R.id.img2),
-            findViewById(R.id.img3), findViewById(R.id.img4), findViewById(R.id.img5), findViewById(R.id.img6),
+            findViewById(R.id.img1), findViewById(R.id.img2), findViewById(R.id.img3),
+            findViewById(R.id.img4), findViewById(R.id.img5), findViewById(R.id.img6),
             findViewById(R.id.img7), findViewById(R.id.img8), findViewById(R.id.img9)
         )
     }
@@ -50,9 +47,9 @@ class MainActivity : AppCompatActivity() {
         img.isClickable = false
 
         if (turnNum % 2 == 0) {
-            img.setImageResource(this.redX)
+            img.setImageResource(this.red_X)
         } else {
-            img.setImageResource(this.blackO)
+            img.setImageResource(this.black_O)
         }
         // updating that the block has been clicked
         this.updateBlock(img)
